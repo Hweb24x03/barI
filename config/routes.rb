@@ -1,4 +1,9 @@
 Happydays::Application.routes.draw do
+
+  get "users/index"
+  get "users/callback"
+  get "users/oauth"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
