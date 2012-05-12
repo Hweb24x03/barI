@@ -19,6 +19,8 @@ describe BarsController do
         FactoryGirl.create :bar, shop_id: 'hoge'
         post :add_going, { id: 'hoge', session: session.key }
         session.user.bars.size.should == 1
+        post :add_going, { id: 'hoge', session: session.key }
+        session.user.bars.size.should == 1
       end
     end
   end
