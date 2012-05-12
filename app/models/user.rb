@@ -3,13 +3,13 @@ class User < ActiveRecord::Base
   has_many :topics, through: :topiccings
   has_many :bars, through: :going_bars
 
-  def self.hash(pass)
+  def self.hash_pass(pass)
     salt = PASSWORD_SALT
     Digest::SHA1.hexdigest(salt+pass+"bt")
   end
 
   def password=(password)
-    self.hashed_password = User.hash(password)
+    self.hashed_password = User.hash_pass(password)
   end
 
   def interests=(interests)

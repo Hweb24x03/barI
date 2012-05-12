@@ -86,7 +86,7 @@ class UsersController < ApplicationController
   def sign_in
     user = User.find_by_name(params[:user_id])
     pass = params[:password]
-    if user.hashed_password == User.hash(pass)
+    if user.hashed_password == User.hash_pass(pass)
       session = Session.create_session(user)
       render json: { session: session.key }
     else
