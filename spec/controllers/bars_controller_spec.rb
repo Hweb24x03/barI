@@ -11,4 +11,15 @@ describe BarsController do
       end
     end
   end
+
+  describe  "POST /bars" do
+    context "行きたい店が登録できる" do
+      it do
+        session = FactoryGirl.create :session
+        FactoryGirl.create :bar, shop_id: 'hoge'
+        post :index, { id: 'hoge', session: session.key }
+        session.user.bars.size.should == 1
+      end
+    end
+  end
 end

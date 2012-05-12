@@ -4,8 +4,8 @@ class BarsController < ApplicationController
 
   def index
     if login?
-      #render json: call_barnavi_api
-      render json: stub
+      render json: call_barnavi_api
+      #render json: stub
     else
       render json: { error: "ログインしてください" }, status: 400
     end
@@ -19,7 +19,7 @@ class BarsController < ApplicationController
 
   def add_going
     if login?
-      bar = Bar.find_by_id params[:id]
+      bar = Bar.find_by_shop_id params[:id]
       @current_user.bars << bar if bar
     end
   end

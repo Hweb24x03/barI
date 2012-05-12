@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_many :topiccings
   has_many :topics, through: :topiccings
+
+  has_many :going_bars
   has_many :bars, through: :going_bars
 
   def self.hash_pass(pass)

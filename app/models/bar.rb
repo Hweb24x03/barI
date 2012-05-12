@@ -2,6 +2,9 @@ class Bar < ActiveRecord::Base
   has_many :matches, through: :going_bars
   has_many :goes, through: :will_bars
 
+  has_many :going_bars
+  has_many :users, through: :going_bars
+
   def match_num
     self.users.count - 1
   end
