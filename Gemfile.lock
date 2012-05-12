@@ -40,7 +40,14 @@ GEM
     erubis (2.7.0)
     execjs (1.3.2)
       multi_json (~> 1.0)
+    facebook_oauth (0.3.0)
+      json (>= 1.5.3)
+      mime-types (>= 1.16)
+      oauth2 (>= 0.5.1)
+    faraday (0.8.0)
+      multipart-post (~> 1.1)
     hike (1.2.1)
+    httpauth (0.1)
     i18n (0.6.0)
     journey (1.0.3)
     jquery-rails (2.0.2)
@@ -53,6 +60,13 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.18)
     multi_json (1.3.4)
+    multipart-post (1.1.5)
+    oauth (0.4.6)
+    oauth2 (0.7.1)
+      faraday (~> 0.8)
+      httpauth (~> 0.1)
+      multi_json (~> 1.0)
+      rack (~> 1.4)
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.2)
@@ -104,7 +118,9 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
+  facebook_oauth
   jquery-rails
+  oauth
   rails (= 3.2.2)
   sass-rails (~> 3.2.3)
   sqlite3
