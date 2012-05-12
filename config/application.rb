@@ -1,7 +1,6 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
-require "private"
 require 'digest/sha1'
 
 if defined?(Bundler)
@@ -13,6 +12,7 @@ end
 
 module Happydays
   class Application < Rails::Application
+    require "private"
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
