@@ -57,3 +57,5 @@ end
 group :development do
   gem "thin"
 end
+
+gem 'factory_girl_rails'
