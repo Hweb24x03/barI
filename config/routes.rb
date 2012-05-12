@@ -4,6 +4,7 @@ Happydays::Application.routes.draw do
   get "users/sign_in"
   resources :users
   resources :bars
+  post "bars", :controller => 'bars', :action => 'add_going'
 
   get "users/index"
   get "users/oauth"
