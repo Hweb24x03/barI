@@ -65,13 +65,16 @@ class BarsController < ApplicationController
     if diff[0] < 1
       bars = Bar.find(:all, :conditions=>[ "pref_code=? and station=?", @current_user.pref_code, @current_user.station])
 
-      shop = []
+      shop_array = []
       bars.each{|bar|
-        shop.push JSON.parse(bar.json)
+        shop = JSON.parse(bar.json)
+        shop['num_of_matches'] = Bar.new.match_num(@current_user)
+
+        shop_array.push shop
       }
 
       shops = { :shops => {
-          :shop => shop
+          :shop => shop_array
         }}
 
       shops
@@ -83,13 +86,9 @@ class BarsController < ApplicationController
       params[:address] = barnavi.get_pref_name(code)
       params[:access] = @current_user.station
 
-
       shops = barnavi.search(params)
 
       shops['shops']['shop'].each{|shop|
-        shop['num_of_matches'] = shop['capacity'] #マッチした人数
-        shop['num_of_persons'] = shop['capacity'] #今日行く人数
-
         if Bar.find(:first, :conditions=>[ "shop_id=?", shop['id'] ]) == nil
           bar = Bar.new
           bar.shop_id = shop['id']
@@ -99,6 +98,8 @@ class BarsController < ApplicationController
 
           bar.save
         end
+
+        shop['num_of_matches'] = Bar.new.match_num(@current_user)
       }
 
       @current_user.cache_at = Time.now
