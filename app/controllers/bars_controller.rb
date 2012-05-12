@@ -29,6 +29,9 @@ class BarsController < ApplicationController
     if login?
       bar = Bar.find_by_shop_id params[:id]
       @current_user.bars << bar if bar
+      render jsqn: { message: "作成しました" }
+    else
+      render json: { error: "ログインしてください" }, status: 400
     end
   end
 
