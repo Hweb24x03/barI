@@ -80,4 +80,9 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def callback
+    client = facebook_client
+    client.authorize(:code => params[:code])
+  end
 end

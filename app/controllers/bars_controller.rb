@@ -2,7 +2,11 @@ class BarsController < ApplicationController
   respond_to :json
 
   def index
-    respond_with ["hoge"]
+    if login?
+      respond_with ["hoge"]
+    else
+      oauth
+    end
   end
 
   def show
