@@ -17,10 +17,42 @@ class BarsController < ApplicationController
   def create
   end
 
+  def going
+    ret = {}
+    if login?
+      ret = []
+      @current_user.bars.find_each do |bar|
+        ret << JSON.parse(bar.json)
+      end
+    end
+    render json: ret
+  end
+
+  def wills
+    ret = {}
+    if login?
+      ret = []
+      @current_user.wills.find_each do |bar|
+        ret << JSON.parse(bar.json)
+      end
+    end
+    render json: ret
+  end
+
   def add_going
     if login?
       bar = Bar.find_by_shop_id params[:id]
       @current_user.bars << bar if bar
+      render jsqn: { message: "作成しました" }
+    else
+      render json: { error: "ログインしてください" }, status: 400
+    end
+  end
+
+  def add_will
+    if login?
+      bar = Bar.find_by_shop_id params[:id]
+      @current_user.wills << bar if bar
     end
   end
 

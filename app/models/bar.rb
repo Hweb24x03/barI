@@ -4,8 +4,9 @@ class Bar < ActiveRecord::Base
   has_many :goes, through: :will_bars
 
   def match_num(user)
-    sum = -1
-    self.matches.each do |u|
+    sum = 0
+    self.matches.find_each do |u|
+      next if u == user
       if u.topics.any? { |t| u.topics.include? t }
         sum += 1
       end
@@ -17,7 +18,12 @@ class Bar < ActiveRecord::Base
     1
   end
 
-  def topic_rate
-    100
+  def topic_rate(user)
+    topics = []
+    self.matches.find_each do |u|
+      next if u == user
+      topics = topics | u.topics
+    end
+    ((topics.count.to_f/user.topics.count) * 100).to_i
   end
 end

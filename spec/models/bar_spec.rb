@@ -21,7 +21,7 @@ describe Bar do
     end
 
     it "#topic_rate" do
-      subject.topic_rate.should == 100
+      subject.topic_rate(@user).should == 50
     end
   end
 end
