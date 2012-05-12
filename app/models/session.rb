@@ -1,7 +1,9 @@
 class Session < ActiveRecord::Base
   def self.create_session(user)
-    session = Session.create
-    session.key = "hoge"
+    session = Session.new
+    session.user_id = user.id
+    session.key = Digest::SHA1.hexdigest(Time.now.to_s + user.nickname)
+    session.save
     session
   end
 end

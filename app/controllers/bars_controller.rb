@@ -3,7 +3,6 @@ class BarsController < ApplicationController
   respond_to :json
 
   def index
-
     if login?
       #render json: call_barnavi_api
       render json: stub
@@ -16,6 +15,12 @@ class BarsController < ApplicationController
   end
 
   def create
+  end
+
+  def add_going
+    if login?
+      @current_user
+    end
   end
 
   def call_barnavi_api
