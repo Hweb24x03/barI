@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :session do
-    user ""
-    key "MyString"
+    user "user1"
+    key "session_key"
   end
 end

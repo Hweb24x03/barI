@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class UsersController < ApplicationController
   # GET /users
   # GET /users.json
@@ -78,6 +79,17 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to users_url }
       format.json { head :no_content }
+    end
+  end
+
+  def sign_in
+    user = User.find_by_name(params[:user_id])
+    pass = params[:password]
+    if user.hashed_password == User.hash(pass)
+      session = Session.create_session(user)
+      render json: { session_id: session.key }
+    else
+      render json: { error: "ユーザidもしくはパスワードが違います。" }
     end
   end
 

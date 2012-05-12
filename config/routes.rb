@@ -1,6 +1,7 @@
 Happydays::Application.routes.draw do
 
   get "users/callback"
+  get "users/sign_in"
   resources :users
   resources :bars
 
