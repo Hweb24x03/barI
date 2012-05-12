@@ -26,6 +26,7 @@ describe UsersController do
         sex: 1,
         age: 1,
         pref_code: 10,
+        interests: "サッカー,コンピュータ"
       }
       post :create, params
       response.should be_success
