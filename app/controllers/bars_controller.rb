@@ -25,10 +25,25 @@ class BarsController < ApplicationController
     render json: ret
   end
 
+  def wills
+    ret = {}
+    if login?
+      ret = @current_user.wills
+    end
+    render json: ret
+  end
+
   def add_going
     if login?
       bar = Bar.find_by_shop_id params[:id]
       @current_user.bars << bar if bar
+    end
+  end
+
+  def add_will
+    if login?
+      bar = Bar.find_by_shop_id params[:id]
+      @current_user.wills << bar if bar
     end
   end
 

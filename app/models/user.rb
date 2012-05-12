@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
   has_many :going_bars
   has_many :bars, through: :going_bars
 
+  has_many :will_bars
+  has_many :wills, through: :will_bars
+
   def self.hash_pass(pass)
     salt = PASSWORD_SALT
     Digest::SHA1.hexdigest(salt+pass+"bt")

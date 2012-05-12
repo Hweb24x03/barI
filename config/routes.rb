@@ -5,8 +5,10 @@ Happydays::Application.routes.draw do
   resources :users
 
   get "bars/going"
+  get "bars/wills"
   resources :bars
   post "bars/:id" => "bars#add_going"
+  post "bars/addwill/:id" => "bars#add_wills"
 
   get "users/index"
   get "users/oauth"
