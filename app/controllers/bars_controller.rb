@@ -3,16 +3,9 @@ class BarsController < ApplicationController
   respond_to :json
 
   def index
-    
-    if login?
-      #barnavi = Barnavi.new
 
-      #shops = barnavi.search
-      #shops['shops']['shop'].each{|shop|
-      #  shop['num_of_matches'] = shop['capacity'] #マッチした人数
-      #  shop['num_of_persons'] = shop['capacity'] #今日行く人数
-      #}
-      #render json: shops
+    if login?
+      #render json: bars
       render json: stub
     else
       render json: { error: "ログインしてください" }, status: 400
@@ -23,6 +16,27 @@ class BarsController < ApplicationController
   end
 
   def create
+  end
+
+  def bars
+    barnavi = Barnavi.new
+
+    shops = barnavi.search
+    shops['shops']['shop'].each{|shop|
+      shop['num_of_matches'] = shop['capacity'] #マッチした人数
+      shop['num_of_persons'] = shop['capacity'] #今日行く人数
+
+      if Bar.find(:first, :conditions=>[ "shop_id=?", shop['id'] ]) == nil
+        bar = Bar.new
+        bar.shop_id = shop['id']
+        bar.json    = shop.to_json
+
+        bar.save
+      end
+
+    }
+
+    shops
   end
 
   def stub
