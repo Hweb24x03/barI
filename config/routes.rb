@@ -1,6 +1,7 @@
 Happydays::Application.routes.draw do
 
   resources :users
+  resources :bars
 
   get "users/index"
   get "users/callback"
