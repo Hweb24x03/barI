@@ -5,8 +5,9 @@ describe BarsController do
   describe  "GET /bars" do
     context "ログインしている" do
       it do
-        get :index, { session: "hoge" }
-        response.should be_success
+        session = FactoryGirl.create :session
+        get :index, { session: session.key }
+        response.status.should == 200
       end
     end
   end

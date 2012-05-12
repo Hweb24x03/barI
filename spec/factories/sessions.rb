@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :session do
-    user "user1"
     key "session_key"
+    association :user, factory: :user
   end
 end
