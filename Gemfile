@@ -59,3 +59,4 @@ group :development do
 end
 
 gem 'factory_girl_rails'
+gem 'twitter-bootstrap-rails'
