@@ -60,3 +60,4 @@ end
 
 gem 'factory_girl_rails'
 gem 'twitter-bootstrap-rails'
+gem 'awesome_print'

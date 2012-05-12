@@ -16,4 +16,22 @@ describe UsersController do
       end
     end
   end
+
+  describe "POST create" do
+    it "ユーザの作成に成功する" do
+      params = {
+        nickname: "ニック",
+        user_id: "mogu",
+        password: "mogumogu",
+        sex: 1,
+        age: 1,
+        pref_code: 10,
+        interests: "サッカー,コンピュータ"
+      }
+      post :create, params
+      response.should be_success
+    end
+
+    it "ユーザの作成に失敗する"
+  end
 end
