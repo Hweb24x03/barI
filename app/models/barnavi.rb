@@ -3,16 +3,16 @@ require 'uri'
 
 class Barnavi
 
-  def search_ params
+  def search_ params={}
+    params[:key] = BAR_NAVI_KEY
+    params[:url] = "http://example.com"
+    params[:format] = "json"
+
     query_string = URI.encode_www_form(params)
 
     uri = URI.parse("http://webapi.suntory.co.jp")
     res = Net::HTTP.start(uri.host, uri.port) {|http|
-
-      url = URI.encode("http://example.com")
-      key = BAR_NAVI_KEY
-
-      http.get("/barnavi/v2/shops?key=#{key}&url=#{url}&format=json&#{query_string}")
+      http.get("/barnavi/v2/shops?#{query_string}")
     }
 
     JSON.parse(res.body)
