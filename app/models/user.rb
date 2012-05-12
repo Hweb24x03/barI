@@ -20,4 +20,5 @@ class User < ActiveRecord::Base
       self.topics << topic
     end
   end
+
 end

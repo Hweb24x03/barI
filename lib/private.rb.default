@@ -3,3 +3,4 @@ BAR_NAVI_KEY = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 CONSUMER_KEY = "xxxxxxxxxxxxxxx"
 CONSUMER_SECRET = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 CALLBACK_URL = "http://xxxxxxxxxxxxxxxxxxxxxx.xx.xx/xxxx"
+PASSWORD_SALT = 'sfarytuimmhJAYTWvjWHMyjjmn'

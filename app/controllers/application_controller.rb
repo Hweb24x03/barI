@@ -3,25 +3,14 @@ class ApplicationController < ActionController::Base
 
   protected
   def login?
+    return @current_user if @current_user
     key = params[:session]
-    if key
-      true
+    session = Session.find_by_key key
+    if session
+      @current_user = User.find_by_id session.user_id
     else
       nil
     end
-  end
-
-  def oauth
-    client = facebook_client
-    redirect_to client.authorize_url
-  end
-
-  def facebook_client
-    FacebookOAuth::Client.new(
-      :application_id     => CONSUMER_KEY,
-      :application_secret => CONSUMER_SECRET,
-      :callback           => CALLBACK_URL
-    )
   end
 
 end
