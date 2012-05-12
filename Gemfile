@@ -40,3 +40,20 @@ gem 'facebook_oauth','0.3.0'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+
+group :test, :development do
+  gem "rspec-rails", "~> 2.6"
+  gem "capybara"
+  gem "spork-rails"
+  gem "autotest"
+  gem "autotest-rails"
+end
+
+group :test do
+  gem "cucumber-rails", require: false
+  gem "database_cleaner"
+end
+
+group :development do
+  gem "thin"
+end
