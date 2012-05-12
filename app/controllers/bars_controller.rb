@@ -5,7 +5,7 @@ class BarsController < ApplicationController
   def index
 
     if login?
-      #render json: bars
+      #render json: call_barnavi_api
       render json: stub
     else
       render json: { error: "ログインしてください" }, status: 400
@@ -18,10 +18,16 @@ class BarsController < ApplicationController
   def create
   end
 
-  def bars
+  def call_barnavi_api
     barnavi = Barnavi.new
 
-    shops = barnavi.search
+    # default値(パラメータが入ってない場合)
+    params[:pref] = 34 if params[:pref] == nil
+    params[:address] = "広島県広島市中区銀山町" if params[:address] == nil
+    params[:access]  = "銀山町駅" if params[:access] == nil
+
+    shops = barnavi.search(params)
+
     shops['shops']['shop'].each{|shop|
       shop['num_of_matches'] = shop['capacity'] #マッチした人数
       shop['num_of_persons'] = shop['capacity'] #今日行く人数
@@ -33,7 +39,6 @@ class BarsController < ApplicationController
 
         bar.save
       end
-
     }
 
     shops

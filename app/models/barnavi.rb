@@ -1,12 +1,14 @@
+# -*- coding: utf-8 -*-
 require 'net/http'
 require 'uri'
 
 class Barnavi
 
-  def search_ params={}
+  def search params={}
     params[:key] = BAR_NAVI_KEY
     params[:url] = "http://example.com"
     params[:format] = "json"
+    params[:pattern] = 0
 
     query_string = URI.encode_www_form(params)
 
@@ -16,10 +18,6 @@ class Barnavi
     }
 
     JSON.parse(res.body)
-  end
-
-  def search
-    self.search_(:pattern => 1, :pref => 34, :lat => 34.391911, :lng => 132.467794)
   end
 
   def url
