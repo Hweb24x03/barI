@@ -5,7 +5,7 @@ describe BarsController do
   describe  "GET /bars" do
     context "ログインしている" do
       it do
-        get :index
+        get :index, { session: "hoge" }
         response.should be_success
       end
     end
