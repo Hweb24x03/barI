@@ -23,6 +23,7 @@ describe UsersController do
         nickname: "ニック",
         user_id: "mogu",
         password: "mogumogu",
+        station: "広島駅",
         sex: 1,
         age: 1,
         pref_code: 10,
