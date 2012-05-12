@@ -17,6 +17,14 @@ class BarsController < ApplicationController
   def create
   end
 
+  def going
+    ret = {}
+    if login?
+      ret = @current_user.bars
+    end
+    render json: ret
+  end
+
   def add_going
     if login?
       bar = Bar.find_by_shop_id params[:id]
