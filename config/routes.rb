@@ -1,5 +1,7 @@
 Happydays::Application.routes.draw do
 
+  resources :users
+
   get "users/index"
   get "users/callback"
   get "users/oauth"

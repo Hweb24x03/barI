@@ -1,4 +1,23 @@
+<h1>Listing users</h1>
 
-<h1>Users</h1>
+<table>
+  <tr>
+    <th>Nickname</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
 
-<%= link_to 'OAuth認証', '/users/oauth' %>
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.nickname %></td>
+    <td><%= link_to 'Show', user %></td>
+    <td><%= link_to 'Edit', edit_user_path(user) %></td>
+    <td><%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New User', new_user_path %>
