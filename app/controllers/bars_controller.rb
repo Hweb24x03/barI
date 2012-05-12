@@ -78,8 +78,9 @@ class BarsController < ApplicationController
     else
       barnavi = Barnavi.new
 
-      params[:pref] = @current_user.pref_code
-      params[:address] = barnavi.get_pref_name(@current_user.pref_code)
+      code = "%02d" % @current_user.pref_code
+      params[:pref] = code
+      params[:address] = barnavi.get_pref_name(code)
       params[:access] = @current_user.station
 
 
