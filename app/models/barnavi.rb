@@ -4,7 +4,6 @@ require 'uri'
 class Barnavi
 
   def search_ params
-
     query_string = URI.encode_www_form(params)
 
     uri = URI.parse("http://webapi.suntory.co.jp")
@@ -16,7 +15,7 @@ class Barnavi
       http.get("/barnavi/v2/shops?key=#{key}&url=#{url}&format=json&#{query_string}")
     }
 
-    res.body
+    JSON.parse(res.body)
   end
 
   def search
