@@ -1,7 +1,7 @@
 # -*- encoding: UTF-8 -*-
 
 class UsersController < ApplicationController
-  CALLBACK_URL    = "https://happydays.heroku.com/users/callback"
+  CALLBACK_URL    = "http://localhost:3000/users/callback"
   CONSUMER_KEY    = "429142240431394"
   CONSUMER_SECRET = "f84dbfdd85dd1d84ea193dd27616e5ff"
 

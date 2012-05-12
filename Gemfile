@@ -22,8 +22,8 @@ end
 
 gem 'jquery-rails'
 
-gem 'oauth'
-gem 'facebook_oauth'
+gem 'oauth','0.4.6'
+gem 'facebook_oauth','0.3.0'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

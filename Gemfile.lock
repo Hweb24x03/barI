@@ -118,9 +118,9 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
-  facebook_oauth
+  facebook_oauth (= 0.3.0)
   jquery-rails
-  oauth
+  oauth (= 0.4.6)
   rails (= 3.2.2)
   sass-rails (~> 3.2.3)
   sqlite3
