@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :topiccings
   has_many :topics, through: :topiccings
+  has_many :bars, through: :going_bars
 
   def self.hash(pass)
     salt = PASSWORD_SALT
