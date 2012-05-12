@@ -11,13 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120512160459) do
+ActiveRecord::Schema.define(:version => 20120512190334) do
 
   create_table "bars", :force => true do |t|
     t.string   "shop_id"
     t.text     "json"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "pref_code"
+    t.string   "station"
   end
 
   create_table "going_bars", :force => true do |t|
@@ -63,6 +65,7 @@ ActiveRecord::Schema.define(:version => 20120512160459) do
     t.integer  "age"
     t.integer  "pref_code"
     t.string   "station"
+    t.datetime "cache_at"
   end
 
   create_table "will_bars", :force => true do |t|
