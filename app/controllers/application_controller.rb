@@ -3,8 +3,8 @@ class ApplicationController < ActionController::Base
 
   protected
   def login?
-    code = params[:code]
-    if code
+    key = params[:session]
+    if key
       true
     else
       nil

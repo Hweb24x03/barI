@@ -87,9 +87,12 @@ class UsersController < ApplicationController
     pass = params[:password]
     if user.hashed_password == User.hash(pass)
       session = Session.create_session(user)
-      render json: { session_id: session.key }
+      render json: { session: session.key }
     else
-      render json: { error: "ユーザidもしくはパスワードが違います。" }
+      render({
+        json: { error: "ユーザidもしくはパスワードが違います。" },
+        status: 400,
+      })
     end
   end
 
