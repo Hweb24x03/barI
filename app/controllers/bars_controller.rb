@@ -26,10 +26,13 @@ class BarsController < ApplicationController
   def call_barnavi_api
     barnavi = Barnavi.new
 
+    #params[:pref] = @current_user.pref_code
+    #params[:address] = @current_user.pref_code
+
     # default値(パラメータが入ってない場合)
-    params[:pref] = 34 if params[:pref] == nil
-    params[:address] = "広島県広島市中区銀山町" if params[:address] == nil
-    params[:access]  = "銀山町駅" if params[:access] == nil
+    params[:pref] = "34" if params[:pref] == nil
+    params[:address] = barnavi.get_pref_name("34") if params[:address] == nil
+    params[:access]  = "広島系" if params[:access] == nil
 
     shops = barnavi.search(params)
 
