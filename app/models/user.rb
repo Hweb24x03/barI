@@ -16,7 +16,11 @@ class User < ActiveRecord::Base
 
   def interests=(interests)
     require 'csv'
-    interests = CSV.parse(interests)[0]
+    if interests == ""
+      interests = []
+    else
+      interests = CSV.parse(interests)[0]
+    end
     interests.map do |interest|
       topic = Topic.find_by_name(interest) || Topic.create(name: interest)
       self.topics << topic
