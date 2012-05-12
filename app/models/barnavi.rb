@@ -2,9 +2,8 @@ require 'net/http'
 require 'uri'
 
 class Barnavi
-  # sample:
-  # json = b.search(:pattern => 1, :pref => 34, :lat => 34.391911, :lng => 132.467794)
-  def search params
+
+  def search_ params
 
     query_string = URI.encode_www_form(params)
 
@@ -18,6 +17,10 @@ class Barnavi
     }
 
     res.body
+  end
+
+  def search
+    self.search_(:pattern => 1, :pref => 34, :lat => 34.391911, :lng => 132.467794)
   end
 
   def url
