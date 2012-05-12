@@ -20,6 +20,16 @@ ActiveRecord::Schema.define(:version => 20120512135326) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "going_bars", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "bar_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "going_bars", ["bar_id"], :name => "index_going_bars_on_bar_id"
+  add_index "going_bars", ["user_id"], :name => "index_going_bars_on_user_id"
+
   create_table "sessions", :force => true do |t|
     t.integer  "user_id"
     t.string   "key"
