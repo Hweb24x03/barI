@@ -3,6 +3,6 @@
 FactoryGirl.define do
   factory :bar, :class => 'Bar' do
     shop_id "MyString"
-    json "MyText"
+    json "{}"
   end
 end

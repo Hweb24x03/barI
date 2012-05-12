@@ -20,7 +20,10 @@ class BarsController < ApplicationController
   def going
     ret = {}
     if login?
-      ret = @current_user.bars
+      ret = []
+      @current_user.bars.find_each do |bar|
+        ret << JSON.parse(bar.json)
+      end
     end
     render json: ret
   end
@@ -28,7 +31,10 @@ class BarsController < ApplicationController
   def wills
     ret = {}
     if login?
-      ret = @current_user.wills
+      ret = []
+      @current_user.wills.find_each do |bar|
+        ret << JSON.parse(bar.json)
+      end
     end
     render json: ret
   end
