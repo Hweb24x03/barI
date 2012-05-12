@@ -1,3 +1,5 @@
+require "private"
+
 class Barnavi
   def search
     "hoge"
@@ -5,7 +7,7 @@ class Barnavi
 
   def url
     url = "http://example.com"
-    key = ""
+    key = BAR_NAVI_KEY
     "http://webapi.suntory.co.jp/barnavi/v2/shops?key=#{key}&pref=26&url=#{url}}"
   end
 end
