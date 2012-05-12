@@ -5,15 +5,13 @@ class BarsController < ApplicationController
   def index
     
     if login?
-      barnavi = Barnavi.new
+      #barnavi = Barnavi.new
 
-      shops = barnavi.search
-
-      shops['shops']['shop'].each{|shop|
-        shop['matches'] = shop['capacity'] #マッチした人数
-        shop['num_of_persons'] = shop['capacity'] #今日行く人数
-      }
-
+      #shops = barnavi.search
+      #shops['shops']['shop'].each{|shop|
+      #  shop['num_of_matches'] = shop['capacity'] #マッチした人数
+      #  shop['num_of_persons'] = shop['capacity'] #今日行く人数
+      #}
       #render json: shops
       render json: stub
     else
@@ -47,9 +45,9 @@ class BarsController < ApplicationController
                 "lat_world": "34.39154286217576", 
                 "lng_tokyo": "132.46884444444444", 
                 "lng_world": "132.46630066538407", 
-                "matches": "9", 
                 "name": "ＢＡＲ　ＭＡＸＩＭＵＭ", 
                 "name_kana": "バー　マキシマム", 
+                "num_of_matches": "9", 
                 "num_of_persons": "9", 
                 "open": "21：00～05：00", 
                 "private_room": "なし", 
@@ -75,9 +73,9 @@ class BarsController < ApplicationController
                 "lat_world": "34.39198447845296", 
                 "lng_tokyo": "132.4686638888889", 
                 "lng_world": "132.46612010448897", 
-                "matches": "40", 
                 "name": "ｍａｉｎ　Ｂａｒ　Ｂｒａｓｄ’ｏｒ", 
                 "name_kana": "メイン　バー　ブラドール", 
+                "num_of_matches": "40", 
                 "num_of_persons": "40", 
                 "open": "月～土　18：00～03：00　ＬＯ02:30 ／日・祝　18：00～00：00　ＬＯ23:30", 
                 "private_room": "あり", 
@@ -103,9 +101,9 @@ class BarsController < ApplicationController
                 "lat_world": "34.392567748477084", 
                 "lng_tokyo": "132.4686111111111", 
                 "lng_world": "132.4660673042385", 
-                "matches": "18", 
                 "name": "カマラード", 
                 "name_kana": "カマラード", 
+                "num_of_matches": "18", 
                 "num_of_persons": "18", 
                 "open": "月～土　19:00～02:00 ／祝　19:00～00:00", 
                 "private_room": "なし", 
@@ -131,9 +129,9 @@ class BarsController < ApplicationController
                 "lat_world": "34.39101513628378", 
                 "lng_tokyo": "132.46858333333333", 
                 "lng_world": "132.46603960025425", 
-                "matches": "40", 
                 "name": "ＢＡＲ　陀陀", 
                 "name_kana": "バー　ダダ", 
+                "num_of_matches": "40", 
                 "num_of_persons": "40", 
                 "open": "月～土　19:00～04:00　ＬＯ　（フード）03:30 ／日・祝　19:00～02:00　ＬＯ　（フード）01:30※週末の祝日は04:00まで営業", 
                 "private_room": "あり", 
@@ -159,9 +157,9 @@ class BarsController < ApplicationController
                 "lat_world": "34.39089292514427", 
                 "lng_tokyo": "132.46846944444445", 
                 "lng_world": "132.4659257264499", 
-                "matches": "10", 
                 "name": "Ｂａｒ　ｓｗａｌｌｏｗｔａｉｌ", 
                 "name_kana": "バー　スワロウテイル", 
+                "num_of_matches": "10", 
                 "num_of_persons": "10", 
                 "open": "21:00～06:00", 
                 "private_room": "なし", 
@@ -187,9 +185,9 @@ class BarsController < ApplicationController
                 "lat_world": "34.391926141268065", 
                 "lng_tokyo": "132.46808611111112", 
                 "lng_world": "132.46554237737712", 
-                "matches": "15", 
                 "name": "サロン・ド　まつ本", 
                 "name_kana": "サロン　ド　マツモト", 
+                "num_of_matches": "15", 
                 "num_of_persons": "15", 
                 "open": "月～土　18:00～02:00 ／日・祝　18:00～00:00", 
                 "private_room": "なし", 
@@ -215,9 +213,9 @@ class BarsController < ApplicationController
                 "lat_world": "34.392598289073554", 
                 "lng_tokyo": "132.46794166666666", 
                 "lng_world": "132.46539791397998", 
-                "matches": "20", 
                 "name": "ＢＡＲ　Ｓｌａｉｎｔｈｅｖａ", 
                 "name_kana": "バー　スランジーバ", 
+                "num_of_matches": "20", 
                 "num_of_persons": "20", 
                 "open": "月～土　19:00～02:00", 
                 "private_room": "なし", 
@@ -243,9 +241,9 @@ class BarsController < ApplicationController
                 "lat_world": "34.3918233693887", 
                 "lng_tokyo": "132.46779444444445", 
                 "lng_world": "132.46525073966305", 
-                "matches": "", 
                 "name": "まほろ", 
                 "name_kana": "マホロ", 
+                "num_of_matches": "", 
                 "num_of_persons": "", 
                 "open": "20:00～02:00", 
                 "private_room": "なし", 
@@ -271,9 +269,9 @@ class BarsController < ApplicationController
                 "lat_world": "34.3927093873311", 
                 "lng_tokyo": "132.4678861111111", 
                 "lng_world": "132.46534235792262", 
-                "matches": "28", 
                 "name": "Ｓｔｅｐ＆ＡＧ", 
                 "name_kana": "ステップアンドエージー", 
+                "num_of_matches": "28", 
                 "num_of_persons": "28", 
                 "open": "月～土　18:00～02:00 ／日・祝　18:00～00:00", 
                 "private_room": "なし", 
@@ -299,9 +297,9 @@ class BarsController < ApplicationController
                 "lat_world": "34.391123445223926", 
                 "lng_tokyo": "132.46785", 
                 "lng_world": "132.46530632283165", 
-                "matches": "15", 
                 "name": "ＫＡＷＡＳＡＫＩ", 
                 "name_kana": "カワサキ", 
+                "num_of_matches": "15", 
                 "num_of_persons": "15", 
                 "open": "18:30～02:00", 
                 "private_room": "なし", 
