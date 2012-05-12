@@ -1,5 +1,3 @@
-require "private"
-
 class Barnavi
   def search
     "hoge"
