@@ -22,7 +22,9 @@ class BarsController < ApplicationController
     if login?
       ret[:shops] = {shop: []}
       @current_user.bars.find_each do |bar|
-        ret[:shops][:shop] << JSON.parse(bar.json)
+        shop = JSON.parse(bar.json)
+        shop[:num_of_matches] = bar.match_num(@current_user)
+        ret[:shops][:shop] << shop
       end
     end
     render json: ret
@@ -33,7 +35,9 @@ class BarsController < ApplicationController
     if login?
       ret[:shops] = {}
       @current_user.wills.find_each do |bar|
-        ret[:shops][:shop] << JSON.parse(bar.json)
+        shop = JSON.parse(bar.json)
+        shop[:num_of_matches] = bar.match_num(@current_user)
+        ret[:shops][:shop] << shop
       end
     end
     render json: ret
