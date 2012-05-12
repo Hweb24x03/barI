@@ -3,7 +3,8 @@ Happydays::Application.routes.draw do
   get "users/callback"
   get "users/sign_in"
   resources :users
-  # get "bars/:id" => "bars#add_going"
+
+  get "bars/going"
   resources :bars
   post "bars/:id" => "bars#add_going"
 
