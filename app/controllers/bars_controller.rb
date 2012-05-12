@@ -19,7 +19,8 @@ class BarsController < ApplicationController
 
   def add_going
     if login?
-      @current_user
+      bar = Bar.find_by_id params[:id]
+      @current_user.bars << bar if bar
     end
   end
 
