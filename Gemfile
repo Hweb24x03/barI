@@ -61,3 +61,7 @@ end
 gem 'factory_girl_rails'
 gem 'twitter-bootstrap-rails'
 gem 'awesome_print'
+
+group :production do
+  gem 'pg'
+end
