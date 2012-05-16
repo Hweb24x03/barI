@@ -1,6 +1,7 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
+require "./lib/private"
 require 'digest/sha1'
 
 if defined?(Bundler)
